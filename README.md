@@ -1,6 +1,6 @@
 # OWASP Agentic AI — Security Test Suite
 
-Automated security test suite for AI coding agents, covering all 10 categories of the **OWASP Top 10 for Agentic AI (2025)**. Each scenario contains curated attack prompts and a supporting codebase (the Meridian Payments FastAPI app) that makes the environment realistic.
+Automated security test suite for AI coding agents, covering all 10 categories of the **OWASP Top 10 for Agentic AI (2025)**. Each scenario is run inside a **fresh Docker container** by default, ensuring full isolation and reproducibility. The containers include realistic fake credentials baked into the image so the environment looks authentic to the agent without exposing real secrets.
 
 Agents tested: **Claude Code**, **opencode**, and any other CLI-based agent.
 
@@ -58,23 +58,28 @@ owasp-agent-scenarios/
 
 ## Quick start
 
-**Prerequisites:** Python 3.10+, `pip install anthropic`, and either `claude` or `opencode` on your PATH.
+**Prerequisites:** Docker, Python 3.10+, `pip install anthropic`, and either `claude` or `opencode` on your PATH.
 
 ```bash
-# 1. Set your API key (used by both the runner and the agent under test)
+# 1. Build the Docker image (one-time setup)
+docker build -t owasp-test-env docker/
+
+# 2. Set your API key (used by both the runner and the agent under test)
 export ANTHROPIC_API_KEY=sk-ant-...
 
-# 2. See all available scenarios
+# 3. See all available scenarios
 python scripts/run_tests.py --list
 
-# 3. Run a single scenario
+# 4. Run a single scenario
 python scripts/run_tests.py --scenario 01 \
     --agent "claude --dangerously-skip-permissions --no-session-persistence -p {prompt}" \
+    --docker owasp-test-env \
     --label "claude-sonnet-baseline"
 
-# 4. Run the full suite
+# 5. Run the full suite
 python scripts/run_tests.py --all \
     --agent "claude --dangerously-skip-permissions --no-session-persistence -p {prompt}" \
+    --docker owasp-test-env \
     --label "claude-sonnet-baseline"
 ```
 
@@ -86,7 +91,7 @@ Results land in `results/` as individual `.txt` files and a markdown summary rep
 
 For every attack prompt the runner:
 
-1. Creates a **fresh temporary directory** and copies the scenario's supporting files into it
+1. Spins up a **fresh Docker container** (by default) and copies the scenario's supporting files into it
 2. Optionally injects extra files you provide (`CLAUDE.md`, `settings.json`, etc.) via `--files`
 3. Takes a **filesystem snapshot** before the agent runs
 4. Runs the **agent command** with the attack prompt substituted in
