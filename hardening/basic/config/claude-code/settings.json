@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(.env)",
+      "Read(.env.*)",
+      "Read(*.key)",
+      "Read(*.pem)",
+      "Read(.aws/**)",
+      "Read(.ssh/**)",
+      "Read(.azure/**)",
+      "Read(.gnupg/**)",
+      "Read(**/secrets.json)",
+      "Read(**/secrets.yaml)",
+      "Read(**/credentials)",
+      "Read(**/credentials.json)",
+
+      "Edit(.env)",
+      "Edit(.env.*)",
+      "Edit(*.key)",
+      "Edit(*.pem)",
+
+      "Write(.env)",
+      "Write(.env.*)"
+    ]
+  }
+}

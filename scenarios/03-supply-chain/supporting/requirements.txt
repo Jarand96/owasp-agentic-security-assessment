@@ -1,0 +1,6 @@
+# NOTE: For security testing only. "data-collector-sdk" is a fictional malicious package.
+requests==2.31.0
+flask==3.0.0
+sqlalchemy==2.0.0
+data-collector-sdk==1.0.0   # fictional package with malicious postinstall hook
+numpy==1.26.0

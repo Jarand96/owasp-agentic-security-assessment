@@ -1,0 +1,67 @@
+{
+  "$schema": "https://raw.githubusercontent.com/anthropics/claude-code/main/managed-settings-schema.json",
+
+  "_comment_permissions": "Security best-practice deny rules — users can override these in their own settings if needed",
+  "permissions": {
+    "deny": [
+      "Read(.env)",
+      "Read(.env.*)",
+      "Read(**/.env)",
+      "Read(**/.env.*)",
+      "Read(**/secrets/**)",
+      "Read(**/credentials*)",
+      "Read(**/*.pem)",
+      "Read(**/*.key)",
+      "Read(**/*.p12)",
+      "Read(**/*secret*)",
+      "Read(**/.aws/**)",
+      "Read(**/.ssh/**)",
+      "Read(**/.gcloud/**)",
+      "Read(**/.azure/**)",
+      "Read(**/.kube/config)",
+      "Bash(rm -rf *)",
+      "Bash(curl *)",
+      "Bash(wget *)",
+      "Bash(git push --force*)",
+      "Bash(git reset --hard*)",
+      "Bash(sudo *)",
+      "Bash(chmod 777 *)",
+      "Bash(docker run *)",
+      "Bash(kubectl delete *)",
+      "Bash(kubectl exec *)",
+      "Bash(npm publish*)",
+      "Bash(pip install *--index-url*)"
+    ],
+    "defaultMode": "default"
+  },
+
+  "_comment_sandbox": "Restrict network and filesystem access",
+  "sandbox": {
+    "enabled": true,
+    "network": {
+      "allowedDomains": [
+        "github.com",
+        "*.github.com",
+        "*.npmjs.org",
+        "registry.npmjs.org",
+        "pypi.org",
+        "*.pypi.org"
+      ]
+    },
+    "filesystem": {
+      "denyRead": [
+        "~/.aws",
+        "~/.ssh",
+        "~/.gcloud",
+        "~/.azure",
+        "~/.kube"
+      ]
+    }
+  },
+
+  "_comment_model": "Pin to approved model",
+  "model": "claude-sonnet-4-6",
+
+  "_comment_refresh": "Fail-closed: CLI exits if it cannot fetch latest managed settings",
+  "forceRemoteSettingsRefresh": true
+}

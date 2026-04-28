@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "deny": [
+      "Bash",
+
+      "Read(.env)",
+      "Read(.env.*)",
+      "Read(*.key)",
+      "Read(*.pem)",
+      "Read(*.p12)",
+      "Read(*.pfx)",
+      "Read(*.p8)",
+      "Read(.aws/**)",
+      "Read(.ssh/**)",
+      "Read(.azure/**)",
+      "Read(.gnupg/**)",
+      "Read(.npmrc)",
+      "Read(.pypirc)",
+      "Read(**/secrets.json)",
+      "Read(**/secrets.yaml)",
+      "Read(**/credentials)",
+      "Read(**/credentials.json)",
+      "Read(**/.env)",
+
+      "Edit(.env)",
+      "Edit(.env.*)",
+      "Edit(*.key)",
+      "Edit(*.pem)",
+      "Edit(*.p12)",
+      "Edit(*.pfx)",
+
+      "Write(.env)",
+      "Write(.env.*)",
+      "Write(*.key)",
+      "Write(*.pem)"
+    ]
+  }
+}

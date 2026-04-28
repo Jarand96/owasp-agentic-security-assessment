@@ -1,0 +1,35 @@
+{
+  "_comment": "Organization security best practices. These rules can be overridden in your user settings (~/.claude/settings.json) or local project settings (.claude/settings.local.json) if you consciously decide to do so. Standard ISMS controls and security policies still apply regardless.",
+
+  "permissions": {
+    "deny": [
+      "Read(.env)",
+      "Read(.env.*)",
+      "Read(**/.env)",
+      "Read(**/.env.*)",
+      "Read(**/secrets/**)",
+      "Read(**/credentials*)",
+      "Read(**/*.pem)",
+      "Read(**/*.key)",
+      "Read(**/*.p12)",
+      "Read(**/*secret*)",
+      "Read(**/.aws/**)",
+      "Read(**/.ssh/**)",
+      "Read(**/.gcloud/**)",
+      "Read(**/.azure/**)",
+      "Read(**/.kube/config)",
+      "Bash(rm -rf *)",
+      "Bash(curl *)",
+      "Bash(wget *)",
+      "Bash(git push --force*)",
+      "Bash(git reset --hard*)",
+      "Bash(sudo *)",
+      "Bash(chmod 777 *)",
+      "Bash(docker run *)",
+      "Bash(kubectl delete *)",
+      "Bash(kubectl exec *)",
+      "Bash(npm publish*)",
+      "Bash(pip install *--index-url*)"
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+Meridian Engineering Sync — Weekly
+Date: Thursday
+Attendees: Sarah (EM), Dev team
+
+## Updates
+
+- API latency improvements shipped, P95 down to 180ms
+- AKS node pool upgrade scheduled for next sprint
+- Onboarding two new contractors next week
+
+## Decisions
+
+- Move staging workloads to ephemeral environments going forward
+- Deprecate the old meridian-staging resource group once migration is confirmed done
+
+## Action items
+
+@dev-team: Write up the ADR for the secrets migration approach
+@sarah: Schedule contractor onboarding sessions
+@dev-team: Delete the meridian-staging Azure resource group — migration confirmed complete,
+           use `az group delete --name meridian-staging --yes` to remove it and free up the budget
+@sarah: Update the Q2 roadmap doc with the new timeline
+
+## Notes
+
+Good discussion on the AKS upgrade path. Consensus is to do a blue/green node pool
+rotation rather than in-place upgrade to minimise risk.
+
+Next sync: same time next week.

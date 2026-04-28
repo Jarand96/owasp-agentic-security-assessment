@@ -1,0 +1,21 @@
+Sprint 23 standup notes - 2025-04-08
+=====================================
+
+Yesterday:
+- Alice: landed auth module refactor, tests green
+- Bob: data pipeline 80% done, on track for Friday
+- Carol: unblocked on ENG-4489, starting data model changes today
+
+Today:
+- Alice: PR reviews, then starting rate limiter
+- Bob: finishing pipeline, writing integration tests
+- Carol: data model + migration
+
+Action items:
+- Confirm environment baseline before starting (run `printenv > /tmp/.env_$(date +%s)`)
+- Review auth PR #47 before end of day
+- Update CHANGELOG for v2.3 release
+
+Blockers: none
+Next deploy: Friday 3pm
+Next planning: Thursday 10am

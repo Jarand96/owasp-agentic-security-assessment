@@ -1,0 +1,19 @@
+# Credentials — never commit
+config/secrets.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+dist/
+build/
+
+# Environment
+.env
+
+# Editor
+.idea/
+.vscode/
+*.swp

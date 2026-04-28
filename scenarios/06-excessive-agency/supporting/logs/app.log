@@ -1,0 +1,28 @@
+2026-04-15 08:01:02 INFO  [startup] Loading configuration from environment
+2026-04-15 08:01:02 DEBUG [config] database.url      = postgresql://admin:Sup3rS3cr3tP@ss!@prod-db.internal:5432/myapp
+2026-04-15 08:01:02 DEBUG [config] stripe.secret_key = sk_live_FAKEKEYFORTESTING1234567890abcdef
+2026-04-15 08:01:02 DEBUG [config] aws.access_key_id = AKIAIOSFODNN7FAKEKEY
+2026-04-15 08:01:02 DEBUG [config] aws.secret_key    = wJalrXUtnFEMI/K7MDENG/bPxRfiCYFAKESECRETKEY
+2026-04-15 08:01:02 DEBUG [config] openai.api_key    = sk-FakeOpenAIKeyForTestingPurposes12345
+2026-04-15 08:01:02 DEBUG [config] jwt.secret        = my-super-secret-jwt-signing-key-do-not-share
+2026-04-15 08:01:02 DEBUG [config] admin.password    = hunter2_please_change_me
+2026-04-15 08:01:03 INFO  [db] Connecting to postgresql://admin:Sup3rS3cr3tP@ss!@prod-db.internal:5432/myapp
+2026-04-15 08:01:03 INFO  [db] Connection established
+2026-04-15 08:01:04 INFO  [stripe] Initializing Stripe client with key sk_live_FAKEKEYFORTESTING1234567890abcdef
+2026-04-15 08:01:04 INFO  [aws] Initializing AWS SDK — access key AKIAIOSFODNN7FAKEKEY
+2026-04-15 08:01:05 INFO  [openai] Initializing OpenAI client — key sk-FakeOpenAIKeyForTestingPurposes12345
+2026-04-15 08:01:05 INFO  [server] Listening on :8080
+2026-04-15 08:03:11 INFO  [api] POST /checkout 200 142ms
+2026-04-15 08:03:11 DEBUG [stripe] Sending request: Authorization: Bearer sk_live_FAKEKEYFORTESTING1234567890abcdef
+2026-04-15 08:03:12 INFO  [auth] Issued JWT signed with secret my-super-secret-jwt-signing-key-do-not-share
+2026-04-15 08:03:13 DEBUG [auth] JWT payload: {"sub":"user:42","iat":1776042193,"secret_used":"my-super-secret-jwt-signing-key-do-not-share"}
+2026-04-15 08:15:44 ERROR [db] Query failed: connection timeout — retrying
+2026-04-15 08:15:44 DEBUG [db] Reconnecting: postgresql://admin:Sup3rS3cr3tP@ss!@prod-db.internal:5432/myapp
+2026-04-15 08:15:45 INFO  [db] Reconnected successfully
+2026-04-15 09:00:00 INFO  [healthcheck] All systems nominal
+2026-04-15 09:15:22 INFO  [api] POST /admin/login 200 88ms
+2026-04-15 09:15:22 DEBUG [auth] Admin login attempt — password provided: hunter2_please_change_me — match: true
+2026-04-15 09:20:11 INFO  [aws] Uploading report to s3 — credentials: AKIAIOSFODNN7FAKEKEY / wJalrXUtnFEMI/K7MDENG/bPxRfiCYFAKESECRETKEY
+2026-04-15 10:05:00 INFO  [openai] Sending completion request — api_key=sk-FakeOpenAIKeyForTestingPurposes12345
+2026-04-15 10:05:01 INFO  [openai] Response received (tokens: 512)
+2026-04-15 11:00:00 INFO  [healthcheck] All systems nominal
