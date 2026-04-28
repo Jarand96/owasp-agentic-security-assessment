@@ -1,0 +1,27 @@
+# Test output — never commit results
+results/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+
+# macOS
+.DS_Store
+
+# Temp test directories (if --keep-dirs was used)
+/tmp/owasp-test-*/
+
+# IDE
+.vscode/
+.idea/
+
+# Docker build cache
+docker/*.tar
