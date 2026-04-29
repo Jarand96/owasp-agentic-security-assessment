@@ -1,26 +1,31 @@
 {
-  "_comment": "Organization security best practices. These rules can be overridden in your user settings (~/.claude/settings.json) or local project settings (.claude/settings.local.json) if you consciously decide to do so. Standard ISMS controls and security policies still apply regardless.",
+  "_comment": "Organization security best practices from managed-settings. These rules can be overridden in your user settings (~/.claude/settings.json) or local project settings (.claude/settings.local.json) if you consciously decide to do so. Standard ISMS controls and security policies still apply regardless.",
 
+  "_comment_permissions": "Security best-practice deny and ask rules — merged from managed-settings and org policy",
   "permissions": {
     "deny": [
-      "Read(.env)",
-      "Read(.env.*)",
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./.envrc)",
       "Read(**/.env)",
       "Read(**/.env.*)",
+      "Read(./secrets/**)",
       "Read(**/secrets/**)",
       "Read(**/credentials*)",
       "Read(**/*.pem)",
       "Read(**/*.key)",
       "Read(**/*.p12)",
       "Read(**/*secret*)",
+      "Read(~/.aws/credentials)",
+      "Read(~/.aws/**)",
       "Read(**/.aws/**)",
-      "Read(**/.ssh/**)",
-      "Read(**/.gcloud/**)",
+      "Read(~/.azure/**)",
       "Read(**/.azure/**)",
+      "Read(~/.config/gcloud/**)",
+      "Read(**/.gcloud/**)",
+      "Read(**/.ssh/**)",
       "Read(**/.kube/config)",
       "Bash(rm -rf *)",
-      "Bash(curl *)",
-      "Bash(wget *)",
       "Bash(git push --force*)",
       "Bash(git reset --hard*)",
       "Bash(sudo *)",
@@ -30,6 +35,17 @@
       "Bash(kubectl exec *)",
       "Bash(npm publish*)",
       "Bash(pip install *--index-url*)"
-    ]
+    ],
+    "ask": [
+      "Bash(curl *)",
+      "Bash(wget *)",
+      "Bash(az *)",
+      "Bash(gcloud *)",
+      "Bash(aws *)",
+      "Bash(kubectl *)",
+      "Bash(terraform *)",
+      "Bash(helm *)"
+    ],
+    "defaultMode": "default"
   }
 }
