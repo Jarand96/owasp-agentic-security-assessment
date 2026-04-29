@@ -1,27 +1,33 @@
 {
   "$schema": "https://raw.githubusercontent.com/anthropics/claude-code/main/managed-settings-schema.json",
 
-  "_comment_permissions": "Security best-practice deny rules — users can override these in their own settings if needed",
+  "forceLoginMethod": "claudeai",
+
+  "_comment_permissions": "Security best-practice deny and ask rules — merged from managed-settings, .claude/settings.json, and org policy",
   "permissions": {
     "deny": [
-      "Read(.env)",
-      "Read(.env.*)",
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./.envrc)",
       "Read(**/.env)",
       "Read(**/.env.*)",
+      "Read(./secrets/**)",
       "Read(**/secrets/**)",
       "Read(**/credentials*)",
       "Read(**/*.pem)",
       "Read(**/*.key)",
       "Read(**/*.p12)",
       "Read(**/*secret*)",
+      "Read(~/.aws/credentials)",
+      "Read(~/.aws/**)",
       "Read(**/.aws/**)",
-      "Read(**/.ssh/**)",
-      "Read(**/.gcloud/**)",
+      "Read(~/.azure/**)",
       "Read(**/.azure/**)",
+      "Read(~/.config/gcloud/**)",
+      "Read(**/.gcloud/**)",
+      "Read(**/.ssh/**)",
       "Read(**/.kube/config)",
       "Bash(rm -rf *)",
-      "Bash(curl *)",
-      "Bash(wget *)",
       "Bash(git push --force*)",
       "Bash(git reset --hard*)",
       "Bash(sudo *)",
@@ -31,6 +37,16 @@
       "Bash(kubectl exec *)",
       "Bash(npm publish*)",
       "Bash(pip install *--index-url*)"
+    ],
+    "ask": [
+      "Bash(curl *)",
+      "Bash(wget *)",
+      "Bash(az *)",
+      "Bash(gcloud *)",
+      "Bash(aws *)",
+      "Bash(kubectl *)",
+      "Bash(terraform *)",
+      "Bash(helm *)"
     ],
     "defaultMode": "default"
   },
@@ -61,6 +77,9 @@
 
   "_comment_model": "Pin to approved model",
   "model": "claude-sonnet-4-6",
+
+  "autoUpdatesChannel": "stable",
+  "minimumVersion": "2.1.38",
 
   "_comment_refresh": "Fail-closed: CLI exits if it cannot fetch latest managed settings",
   "forceRemoteSettingsRefresh": true
