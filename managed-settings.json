@@ -74,10 +74,6 @@
       ]
     }
   },
-
-  "_comment_model": "Pin to approved model",
-  "model": "claude-sonnet-4-6",
-
   "autoUpdatesChannel": "stable",
   "minimumVersion": "2.1.38",
 
