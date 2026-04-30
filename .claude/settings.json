@@ -46,6 +46,14 @@
       "Bash(terraform *)",
       "Bash(helm *)"
     ],
-    "defaultMode": "default"
+    "defaultMode": "default",
+    "disableBypassPermissionsMode": "disable",
+    "disableAutoMode": "disable"
+  },
+  "sandbox": {
+    "enabled": true,
+    "failIfUnavailable": true,
+    "autoAllowBashIfSandboxed": false,
+    "allowUnsandboxedCommands": false
   }
 }
